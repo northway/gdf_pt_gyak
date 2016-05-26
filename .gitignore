@@ -17,3 +17,6 @@ build/
 manifest.mf
 nbproject/
 /dist/
+
+# munka fájlok
+vizsga.txt
