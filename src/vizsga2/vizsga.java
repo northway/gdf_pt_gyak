@@ -6,7 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -159,11 +161,12 @@ public class vizsga extends JFrame implements ActionListener, KeyListener {
         // Fájl deinit
         fileWriter.flush();
 
-        // ArrayList ürítése
-        dm.removeAllElements();
-
       } catch (IOException h) {
         System.err.println("IO hiba: " + h.getMessage());
+      } finally {
+        
+        // ArrayList ürítése
+        dm.removeAllElements();
       }
 
     }
@@ -172,6 +175,34 @@ public class vizsga extends JFrame implements ActionListener, KeyListener {
      * Visszatöltés fájlból
      */
     if (e.getSource() == jbVissza) {
+
+      BufferedReader br = null;
+
+      try {
+
+        String sCurrentLine;
+
+        br = new BufferedReader(new FileReader("vizsga.txt"));
+
+        while ((sCurrentLine = br.readLine()) != null) {
+          dm.addElement(sCurrentLine);
+        }
+
+      } catch (IOException h) {
+        System.err.println(h.getMessage());
+      } finally {
+        
+        try {
+          
+          if (br != null) {
+            br.close();
+          }
+          
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        }
+      }
+
     }
 
   }
