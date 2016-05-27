@@ -19,6 +19,7 @@ public class map {
     m1.put("Rockies", 5);
     m1.put("Giants", 1);
 
+    System.out.println("Simple Map");
     System.out.println(m1);
 
     // TreeMap, fordítve? Int String sorrendben?
@@ -30,10 +31,12 @@ public class map {
     tm.put("Rays", 5);
     tm.put("Orioles", 1);
 
+    System.out.println("Tree Map");
     System.out.println(tm);
 
     Set set = tm.entrySet();
 
+    System.out.println("entrySet()");
     System.out.println(set);
 
     Iterator i = set.iterator();
