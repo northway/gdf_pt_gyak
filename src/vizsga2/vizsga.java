@@ -164,7 +164,7 @@ public class vizsga extends JFrame implements ActionListener, KeyListener {
       } catch (IOException h) {
         System.err.println("IO hiba: " + h.getMessage());
       } finally {
-        
+
         // ArrayList ürítése
         dm.removeAllElements();
       }
@@ -191,13 +191,13 @@ public class vizsga extends JFrame implements ActionListener, KeyListener {
       } catch (IOException h) {
         System.err.println(h.getMessage());
       } finally {
-        
+
         try {
-          
+
           if (br != null) {
             br.close();
           }
-          
+
         } catch (IOException ex) {
           ex.printStackTrace();
         }
